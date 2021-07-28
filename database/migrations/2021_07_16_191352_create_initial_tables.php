@@ -18,12 +18,15 @@ class CreateInitialTables extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('company_name');
+            $table->string('company_type');
             $table->string('location');
             $table->string('url');
             $table->string('tags');
             $table->boolean('is_pinned')->default(false);
-            $table->string('color')->default('');
+            $table->string('background_color')->default('#ffffff');
+            $table->string('color')->default('#1F2937');
             $table->string('company_logo')->default('');
+            $table->date('expiration_date');
             $table->timestamps();
 
             $table->foreign('user_id')

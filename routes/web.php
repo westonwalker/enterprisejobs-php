@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\JobController;
+use App\Models\Job;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +17,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $jobs = Job::where('expiration_date', '>=', date('Y-m-d'))->get();
+    return view('welcome', ['jobs' => $jobs]);
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::post('/subscribers', [SubscriberController::class, 'store'])->name('subscribers.store');
+
+// Route::post('/jobs', [JobsController::class, 'store'])->middleware(['auth'])->name('jobs.store');
+Route::get('/jobs/create', [JobController::class, 'create'])->middleware(['auth'])->name('jobs.create');
+
+
 
 require __DIR__.'/auth.php';

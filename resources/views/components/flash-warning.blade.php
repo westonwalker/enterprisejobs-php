@@ -1,5 +1,5 @@
 @props(['title', 'message'])
-<div class="shadow bg-yellow-50 p-4">
+<div class="shadow sm:rounded-lg bg-yellow-50 p-4">
     <div class="flex">
         <div class="flex-shrink-0">
             <!-- Heroicon name: solid/check-circle -->
@@ -11,7 +11,7 @@
             </svg>
         </div>
         <div class="ml-3">
-            <h3 class="text-sm font-medium text-yellow-800">
+            <h3 class="font-semibold text-yellow-800">
                 {{ session('warning') }}
             </h3>
         </div>

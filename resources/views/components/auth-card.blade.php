@@ -1,4 +1,5 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+<div
+    class="bg-gradient-to-r from-blue-900 via-gray-900 to-purple-900 min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
     <div>
         {{ $logo }}
     </div>
