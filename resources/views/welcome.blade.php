@@ -24,12 +24,10 @@
             <div class="md:flex md:items-center md:justify-between">
                 <div class="flex-1 min-w-0">
                     <a href="/">
-                        <h1 class="text-3xl font-bold leading-7 text-white sm:text-4xl sm:truncate">
-                            EnterpriseDevJobs
-                        </h1>
+                        <x-application-logo></x-application-logo>
                     </a>
                     <p class="text-md font-medium leading-7 text-gray-200 sm:text-lg sm:truncate">
-                        Post your job openings to experienced professional developers.
+                        Post your job openings to professional dotnet developers.
                     </p>
                 </div>
                 <div class="mt-4 flex md:mt-0 md:ml-4">
@@ -67,12 +65,16 @@
         </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 bg-white mb-24">
-        <x-job-list :jobs="$jobs"></x-job-list>
+        @if (env('IS_LIVE') == 0)
+            <h2 class="text-4xl text-purple-700">Coming Soon!</h2>
+        @else
+            <x-job-list :jobs="$jobs"></x-job-list>
+        @endif
     </div>
     <div class="fixed bottom-0 right-0 bg-gray-800">
         <div class="flex w-screen sm:items-center sm:justify-between px-24 py-4">
             <p class="text-md font-medium leading-7 text-gray-100 sm:text-lg sm:truncate">
-                Send your job opening to thousands of developer's inboxes in 5 minutes.
+                Send your job opening to thousands of dotnet developer's inboxes in 5 minutes.
             </p>
             <div class="mt-3 flex sm:mt-0 sm:ml-4">
                 @auth
