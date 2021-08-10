@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriberController;
-use App\Http\Controllers\JobController;
-use App\Models\Job;
+use App\Http\Controllers\DotnetjobController;
+use App\Models\Dotnetjob;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +17,7 @@ use App\Models\Job;
 */
 
 Route::get('/', function () {
-    $jobs = Job::where('expiration_date', '>=', date('Y-m-d'))->get();
+    $jobs = Dotnetjob::where('expiration_date', '>=', date('Y-m-d'))->get();
     return view('welcome', ['jobs' => $jobs]);
 })->name('home');
 
@@ -27,8 +27,8 @@ Route::get('/dashboard', function () {
 
 Route::post('/subscribers', [SubscriberController::class, 'store'])->name('subscribers.store');
 
-// Route::post('/jobs', [JobsController::class, 'store'])->middleware(['auth'])->name('jobs.store');
-Route::get('/jobs/create', [JobController::class, 'create'])->middleware(['auth'])->name('jobs.create');
+Route::post('/jobs', [DotnetjobController::class, 'store'])->middleware(['auth', 'admin'])->name('jobs.store');
+Route::get('/jobs/create', [DotnetjobController::class, 'create'])->middleware(['auth', 'admin'])->name('jobs.create');
 
 
 

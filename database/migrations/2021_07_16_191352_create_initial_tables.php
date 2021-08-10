@@ -13,7 +13,7 @@ class CreateInitialTables extends Migration
      */
     public function up()
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('dotnetjobs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
@@ -37,7 +37,7 @@ class CreateInitialTables extends Migration
 
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('job_id');
+            $table->unsignedBigInteger('dotnetjob_id');
             $table->unsignedBigInteger('user_id');
             $table->string('stripe_payment_id');
             $table->decimal('amount');
@@ -48,9 +48,9 @@ class CreateInitialTables extends Migration
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->foreign('job_id')
+            $table->foreign('dotnetjob_id')
                 ->references('id')
-                ->on('jobs')
+                ->on('dotnetjobs')
                 ->onDelete('cascade');
         });
 

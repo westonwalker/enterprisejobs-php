@@ -33,7 +33,7 @@
                 <div class="mt-4 flex md:mt-0 md:ml-4">
                     @if (Route::has('login'))
                         <div class="">
-                            @auth
+                            {{-- @auth
                                 <a href="{{ route('dashboard') }}"
                                     class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium leading-7 sm:text-lg text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
                                     My Account
@@ -55,7 +55,7 @@
                                         Post a Job
                                     </a>
                                 @endif
-                            @endauth
+                            @endauth --}}
                         </div>
                     @endif
                 </div>
@@ -71,7 +71,7 @@
             <x-job-list :jobs="$jobs"></x-job-list>
         @endif
     </div>
-    <div class="fixed bottom-0 right-0 bg-gray-800">
+    {{-- <div class="fixed bottom-0 right-0 bg-gray-800">
         <div class="flex w-screen sm:items-center sm:justify-between px-24 py-4">
             <p class="text-md font-medium leading-7 text-gray-100 sm:text-lg sm:truncate">
                 Send your job opening to thousands of dotnet developer's inboxes in 5 minutes.
@@ -92,7 +92,7 @@
                 @endauth
             </div>
         </div>
-    </div>
+    </div> --}}
 </body>
 
 </html>

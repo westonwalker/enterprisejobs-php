@@ -1,9 +1,9 @@
 @props(['jobs' => []])
 
-<div class="bg-white overflow-hidden sm:rounded-md">
+<div class="bg-white overflow-hidden">
     <ul class="divide-y">
         @foreach ($jobs as $job)
-            <x-job-row style="background-color: {{ $job->background_color }}"></x-job-row>
+            <x-job-row :job='$job' style="background-color: {{ $job->background_color }}"></x-job-row>
         @endforeach
     </ul>
 </div>
