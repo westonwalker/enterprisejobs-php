@@ -16,7 +16,7 @@
                         </div>
                         <div class="ml-2 flex-shrink-0 flex">
                             <p>
-                                {{ date('m-d-Y', strtotime($job->created_at)) }}
+                                {{ $job->days_since_created }}
                             </p>
                         </div>
                     </div>
