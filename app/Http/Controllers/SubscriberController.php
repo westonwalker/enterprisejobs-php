@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Subscriber;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewSubscriberEmail;
 
 class SubscriberController extends Controller
 {
@@ -20,6 +22,8 @@ class SubscriberController extends Controller
         ]);
         $subscriber = new Subscriber(request(['email']));
         $subscriber->save();
+        
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new NewSubscriberEmail($subscriber));
         
         return redirect(route('home'))->with('success','You are subscribed 😄');
     }
