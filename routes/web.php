@@ -17,7 +17,7 @@ use App\Models\Dotnetjob;
 */
 
 Route::get('/', function () {
-    $jobs = Dotnetjob::where('expiration_date', '>=', date('Y-m-d'))->get();
+    $jobs = Dotnetjob::where('expiration_date', '>=', date('Y-m-d'))->orderByDesc('created_at')->get();
     return view('welcome', ['jobs' => $jobs]);
 })->name('home');
 
